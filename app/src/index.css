@@ -2,6 +2,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  --color-black: #000000;
+  --color-pink: #ffbac1;
+  --color-pink2: #ffe0e3;
+  --color-cream: #fbfbfb;
+  --color-text: #181818;
+  --color-yellow: #ffea00;
+}
+
 @theme {
   --color-background: oklch(1 0 0);
   --color-foreground: oklch(0.145 0 0);

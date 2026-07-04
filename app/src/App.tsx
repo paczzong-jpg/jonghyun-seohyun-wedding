@@ -1,32 +1,121 @@
-import { Loader2 } from "lucide-react";
-
-function MisoLogo() {
-  return (
-    <svg width="93" height="32" viewBox="0 0 93 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-8 w-auto opacity-40">
-      <path d="M92.611 18.6282C92.611 20.6146 92.3131 22.4273 91.7171 24.0662C91.1212 25.705 90.277 27.1204 89.1844 28.3123C88.0919 29.4794 86.7758 30.3857 85.2363 31.0313C83.6968 31.6769 81.9835 31.9997 80.0964 31.9997C78.2341 31.9997 76.5332 31.6769 74.9937 31.0313C73.4542 30.3857 72.1382 29.4794 71.0456 28.3123C69.9779 27.1453 69.1461 25.7547 68.5502 24.1407C67.9542 22.5018 67.6562 20.6891 67.6562 18.7026C67.6562 16.7162 67.9542 14.9035 68.5502 13.2646C69.1461 11.6258 69.9903 10.2228 71.0829 9.05573C72.1754 7.86383 73.4914 6.94508 75.031 6.29947C76.5704 5.65386 78.2838 5.33105 80.1709 5.33105C82.058 5.33105 83.7589 5.65386 85.2736 6.29947C86.8131 6.94508 88.1167 7.85142 89.1844 9.01849C90.277 10.1856 91.1212 11.5885 91.7171 13.2274C92.3131 14.8414 92.611 16.6417 92.611 18.6282ZM85.0129 18.6654C85.0129 16.3313 84.5907 14.4938 83.7465 13.1529C82.9023 11.7872 81.698 11.1043 80.1336 11.1043C78.5693 11.1043 77.365 11.7872 76.5208 13.1529C75.6766 14.4938 75.2544 16.3313 75.2544 18.6654C75.2544 20.9995 75.6766 22.8495 76.5208 24.2152C77.365 25.5561 78.5693 26.2265 80.1336 26.2265C81.698 26.2265 82.9023 25.5561 83.7465 24.2152C84.5907 22.8495 85.0129 20.9995 85.0129 18.6654Z" fill="currentColor"/>
-      <path d="M66.0419 23.4333C66.0419 24.948 65.7811 26.2392 65.2597 27.3069C64.7383 28.3747 64.043 29.2438 63.1739 29.9142C62.3049 30.5847 61.2744 31.0689 60.0825 31.3668C58.9155 31.6648 57.6864 31.8138 56.3952 31.8138C54.508 31.8138 52.7823 31.64 51.218 31.2923C49.6536 30.9199 48.1266 30.4108 46.6367 29.7652L47.7541 23.545C49.2688 24.29 50.7834 24.8859 52.2981 25.3329C53.8128 25.7798 55.2157 26.0033 56.5069 26.0033C57.2518 26.0033 57.8478 25.8792 58.2947 25.6308C58.7417 25.3577 58.9651 24.9356 58.9651 24.3644C58.9651 24.0913 58.9155 23.8554 58.8161 23.6568C58.7168 23.4333 58.5182 23.2222 58.2202 23.0236C57.9222 22.8001 57.5001 22.5766 56.9538 22.3531C56.4076 22.1048 55.6999 21.8317 54.8308 21.5337C53.5148 21.0619 52.3726 20.5901 51.4042 20.1183C50.4606 19.6465 49.6661 19.1002 49.0205 18.4795C48.3997 17.8587 47.9403 17.151 47.6424 16.3564C47.3444 15.537 47.1954 14.5685 47.1954 13.4511C47.1954 12.1351 47.4313 10.9804 47.9031 9.98719C48.3997 8.99394 49.0577 8.17451 49.8771 7.5289C50.7214 6.85846 51.7022 6.36184 52.8195 6.03903C53.9369 5.6914 55.1288 5.51758 56.3952 5.51758C57.3139 5.51758 58.1581 5.55482 58.9279 5.62932C59.6976 5.70381 60.4177 5.82797 61.0882 6.00178C61.7834 6.15077 62.429 6.33701 63.0249 6.56049C63.6457 6.78397 64.2789 7.0447 64.9245 7.34267L63.8071 13.5256C62.4662 12.8055 61.1626 12.2592 59.8963 11.8868C58.6299 11.5143 57.5125 11.3281 56.5441 11.3281C55.0295 11.3281 54.2721 11.7999 54.2721 12.7435C54.2721 12.9918 54.3094 13.2152 54.3839 13.4139C54.4832 13.6125 54.657 13.8112 54.9053 14.0098C55.1785 14.1837 55.5385 14.3699 55.9855 14.5685C56.4572 14.7672 57.0532 14.9907 57.7733 15.239C59.2383 15.7356 60.4922 16.2446 61.5351 16.7661C62.578 17.2627 63.4346 17.8338 64.1051 18.4795C64.7755 19.1251 65.2597 19.8576 65.5577 20.677C65.8805 21.4716 66.0419 22.3904 66.0419 23.4333Z" fill="currentColor"/>
-      <path d="M43.3034 31.5157H35.668V5.81543H43.3034V31.5157Z" fill="currentColor"/>
-      <path fillRule="evenodd" clipRule="evenodd" d="M3.75761 15.9902C3.63285 15.8929 3.57047 15.8442 3.52107 15.8429C3.47146 15.8416 3.42605 15.8638 3.39656 15.9037C3.36719 15.9435 3.36719 16.0214 3.36719 16.1772V31.5153H11.0074V19.2778C8.46599 18.7796 5.9733 17.7181 3.75761 15.9902ZM23.4227 17.3965V31.5154H31.0629V10.8855C31.0629 10.6219 31.0629 10.49 31.0241 10.4472C30.9852 10.4041 30.9281 10.3877 30.8722 10.4034C30.8166 10.4191 30.7454 10.5325 30.6031 10.7594C28.769 13.6823 26.2313 15.9094 23.4227 17.3965Z" fill="currentColor"/>
-      <path fillRule="evenodd" clipRule="evenodd" d="M18.8629 17.3487C12.8562 18.9208 5.51802 17.3219 1.16135 10.6255L5.49762 7.08418C7.95917 10.8677 12.5649 12.3549 17.2261 11.135C21.8574 9.92287 25.5367 6.26859 26.1941 1.27235L31.6698 2.71669C30.6124 10.7529 24.8996 15.7688 18.8629 17.3487Z" fill="currentColor"/>
-    </svg>
-  );
-}
+import { useState, useCallback } from "react";
+import { MainSection } from "@/components/MainSection";
+import { ParentsSection } from "@/components/ParentsSection";
+import { VideoSection } from "@/components/VideoSection";
+import { LoveLetterSection } from "@/components/LoveLetterSection";
+import { GallerySection } from "@/components/GallerySection";
+import { CalendarSection } from "@/components/CalendarSection";
+import { MapSection } from "@/components/MapSection";
+import { AccountSection } from "@/components/AccountSection";
+import { ShareSection } from "@/components/ShareSection";
+import { Lightbox } from "@/components/Lightbox";
+import { Toast } from "@/components/Toast";
+import { weddingData } from "@/data/weddingData";
 
 function App() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastVisible, setToastVisible] = useState(false);
+
+  const showToast = useCallback((msg: string) => {
+    setToastMessage(msg);
+    setToastVisible(true);
+  }, []);
+
+  const hideToast = useCallback(() => {
+    setToastVisible(false);
+  }, []);
+
+  const copyToClipboard = useCallback(
+    (text: string, successMsg: string) => {
+      if (navigator.clipboard) {
+        navigator.clipboard
+          .writeText(text)
+          .then(() => showToast(successMsg))
+          .catch(() => showToast(successMsg));
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.cssText = "position:fixed;opacity:0;";
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try {
+          document.execCommand("copy");
+        } catch (e) {
+          // ignore
+        }
+        document.body.removeChild(ta);
+        showToast(successMsg);
+      }
+    },
+    [showToast]
+  );
+
+  const handleCopyAddress = useCallback(() => {
+    copyToClipboard(weddingData.map.address, "주소가 복사되었습니다 ✓");
+  }, [copyToClipboard]);
+
+  const handleCopyAccount = useCallback(
+    (text: string) => {
+      copyToClipboard(text, "복사되었습니다 ✓");
+    },
+    [copyToClipboard]
+  );
+
+  const handleCopyUrl = useCallback(() => {
+    copyToClipboard(weddingData.shareUrl, "URL이 복사되었습니다 ✓");
+  }, [copyToClipboard, weddingData.shareUrl]);
+
+  const openLightbox = useCallback((index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxOpen(false);
+  }, []);
+
+  const prevImage = useCallback(() => {
+    setLightboxIndex(
+      (prev) =>
+        (prev - 1 + weddingData.images.gallery.length) %
+        weddingData.images.gallery.length
+    );
+  }, []);
+
+  const nextImage = useCallback(() => {
+    setLightboxIndex(
+      (prev) => (prev + 1) % weddingData.images.gallery.length
+    );
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#F5F3F8]">
-      <div className="flex flex-col items-center gap-6 text-center">
-        <MisoLogo />
-        <div className="space-y-2">
-          <h1 className="text-xl font-semibold tracking-tight text-[#9090A0]">
-            결과물이 여기에 표시됩니다
-          </h1>
-          <p className="text-sm text-[#A8A8B8]">
-            MISO에게 만들어달라고 요청해보세요
-          </p>
-        </div>
-        <Loader2 className="size-5 animate-spin text-[#A8A8B8]/50" />
-      </div>
+    <div className="w-full max-w-400 mx-auto overflow-x-hidden bg-black text-white font-['Pretendard','Apple_SD_Gothic_Neo','Malgun_Gothic',sans-serif] text-15 leading-relaxed">
+      <MainSection />
+      <ParentsSection />
+      <VideoSection />
+      <LoveLetterSection />
+      <GallerySection onImageClick={openLightbox} />
+      <CalendarSection />
+      <MapSection onCopyAddress={handleCopyAddress} />
+      <AccountSection onCopyAccount={handleCopyAccount} />
+      <ShareSection onCopyUrl={handleCopyUrl} />
+
+      <Lightbox
+        isOpen={lightboxOpen}
+        currentIndex={lightboxIndex}
+        onClose={closeLightbox}
+        onPrev={prevImage}
+        onNext={nextImage}
+      />
+
+      <Toast
+        message={toastMessage}
+        isVisible={toastVisible}
+        onHide={hideToast}
+      />
     </div>
   );
 }
