@@ -7,8 +7,8 @@ export const weddingData = {
   shareUrl: "https://peeeeeach.com/sample/mb1/",
 
   // 날짜 및 장소
-  date: "2026년 10월 10일 토요일",
-  venue: "웨딩피치홀",
+  date: "2026년 10월 10일 토요일 오후 12시 30분",
+  venue: "Hidden Bay Hotel",
   address: "서울시 마포구 서교동 123-12",
 
   // 신랑 신부 정보
@@ -70,7 +70,7 @@ export const weddingData = {
   images: {
     main1: "/images/gallery_1.jpg",
     saveTheDate: "/images/3_savethedate.jpg",
-    envelope: "/images/4_envelope.jpg",
+    envelope: "/images/4_envelope.png",
     handwrite: "/images/5_handwrite.jpg",
     main2: "/images/6_main2.jpg",
     groomFamily: "/images/7_groom_fam.jpg",
