@@ -11,14 +11,7 @@ export function VideoSection() {
   const embedUrl = `https://www.youtube.com/embed/${weddingData.video.youtubeId}?autoplay=1&rel=0&modestbranding=1&fs=0`;
 
   return (
-    <section
-      className="w-full"
-      style={{
-        background:
-          "repeating-linear-gradient(90deg, #7a9e3c 0px, #8db34a 2px, #6b8e2e 4px, #9bc45a 6px, #7a9e3c 8px), linear-gradient(180deg, #8db34a 0%, #6b8e2e 100%)",
-        backgroundBlendMode: "overlay",
-      }}
-    >
+    <section className="w-full">
       <div className="relative w-full my-8 max-w-[280px] mx-auto">
         {!isPlaying ? (
           <div
