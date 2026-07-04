@@ -3,12 +3,16 @@ import { weddingData } from "@/data/weddingData";
 export function MainSection() {
   return (
     <section className="relative w-full overflow-hidden bg-black text-center leading-none">
-      <div className="w-full leading-none">
+      <div className="relative w-full leading-none">
         <img
           className="w-full block"
           src={weddingData.images.main1}
           alt="커버"
         />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          <p className="text-lg tracking-widest opacity-90">Our</p>
+          <p className="text-4xl font-light tracking-wider mt-1">Wedding</p>
+        </div>
       </div>
 
       <img
