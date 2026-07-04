@@ -23,8 +23,8 @@ export const weddingData = {
 
   // 유튜브 영상
   video: {
-    youtubeId: "8_SPFgmSVUo",
-    thumbnailUrl: "https://img.youtube.com/vi/8_SPFgmSVUo/maxresdefault.jpg",
+    youtubeId: "QLAg6tuvyjU",
+    thumbnailUrl: "https://img.youtube.com/vi/QLAg6tuvyjU/maxresdefault.jpg",
   },
 
   // 지도 정보
