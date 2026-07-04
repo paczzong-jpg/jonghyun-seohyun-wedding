@@ -54,7 +54,7 @@ export function MainSection() {
       <div className="h-12" />
 
       <img
-        className="w-full block m-0 align-bottom"
+        className="w-2/3 mx-auto block m-0 align-bottom"
         src={weddingData.images.main2}
         alt=""
       />
