@@ -4,7 +4,7 @@ export const weddingData = {
   ogTitle: "박종현, 서현 결혼합니다.",
   ogDescription: "2026년 10월 10일 토요일",
   ogImage: "/images/1_thumbnail.jpg",
-  shareUrl: "https://peeeeeach.com/sample/mb1/",
+  shareUrl: "https://jonghyun-seohyun-wedding.com/",
 
   // 날짜 및 장소
   date: "2026년 10월 10일 토요일 오후 12시 30분",
