@@ -12,7 +12,7 @@ export function VideoSection() {
 
   return (
     <section className="w-full bg-black">
-      <div className="relative w-full my-8 max-w-[220px] mx-auto">
+      <div className="relative w-full my-8 max-w-[280px] mx-auto">
         {!isPlaying ? (
           <div
             className="relative w-full cursor-pointer leading-none aspect-[9/16] max-h-[333px] mx-auto overflow-hidden rounded-lg"
