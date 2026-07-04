@@ -15,11 +15,11 @@ export function VideoSection() {
       <div className="relative w-full my-8">
         {!isPlaying ? (
           <div
-            className="relative w-full cursor-pointer leading-none"
+            className="relative w-full cursor-pointer leading-none aspect-[9/16] max-h-[500px] mx-auto overflow-hidden rounded-lg"
             onClick={handlePlay}
           >
             <img
-              className="w-full block"
+              className="w-full h-full object-cover"
               src={weddingData.video.thumbnailUrl}
               alt="영상 썸네일"
             />
@@ -28,7 +28,7 @@ export function VideoSection() {
             </div>
           </div>
         ) : (
-          <div className="relative w-full pt-[56.25%]">
+          <div className="relative w-full pt-[177.78%] max-h-[500px] mx-auto overflow-hidden rounded-lg">
             <iframe
               className="absolute top-0 left-0 w-full h-full border-0"
               src={embedUrl}
