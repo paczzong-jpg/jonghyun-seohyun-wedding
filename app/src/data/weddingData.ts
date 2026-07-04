@@ -1,24 +1,24 @@
 export const weddingData = {
   // 기본 정보
-  title: "안재진, 권정은 결혼합니다.",
-  ogTitle: "안재진, 권정은 결혼합니다.",
-  ogDescription: "2026년 4월 1일 일요일 오후12시",
+  title: "박종현, 서현 결혼합니다.",
+  ogTitle: "박종현, 서현 결혼합니다.",
+  ogDescription: "2026년 10월 10일 토요일",
   ogImage: "/images/1_thumbnail.jpg",
   shareUrl: "https://peeeeeach.com/sample/mb1/",
 
   // 날짜 및 장소
-  date: "2026년 4월 1일 일요일 오후12시",
+  date: "2026년 10월 10일 토요일",
   venue: "웨딩피치홀",
   address: "서울시 마포구 서교동 123-12",
 
   // 신랑 신부 정보
   groom: {
     label: "Groom",
-    name: "Ahn Jae Jin",
+    name: "Park Jong Hyun",
   },
   bride: {
     label: "Bride",
-    name: "Gwon Jeoung Eun",
+    name: "Seo Hyun",
   },
 
   // 유튜브 영상
