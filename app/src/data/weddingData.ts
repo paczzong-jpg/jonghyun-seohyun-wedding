@@ -72,7 +72,7 @@ export const weddingData = {
     saveTheDate: "/images/3_savethedate.jpg",
     envelope: "/images/4_envelope.png",
     handwrite: "/images/5_handwrite.jpg",
-    main2: "/images/6_main2.jpg",
+    main2: "/images/6_main2.png",
     groomFamily: "/images/7_groom_fam.jpg",
     brideFamily: "/images/8_bride_fam.jpg",
     loveLetter1: "/images/9_loveletter1.jpg",
