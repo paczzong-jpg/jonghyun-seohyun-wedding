@@ -11,7 +11,7 @@ export function VideoSection() {
   const embedUrl = `https://www.youtube.com/embed/${weddingData.video.youtubeId}?autoplay=1&rel=0&modestbranding=1&fs=0`;
 
   return (
-    <section className="w-full bg-black">
+    <section className="w-full bg-white">
       <div className="relative w-full my-8 max-w-[280px] mx-auto">
         {!isPlaying ? (
           <div
