@@ -68,7 +68,7 @@ export const weddingData = {
 
   // 이미지 경로
   images: {
-    main1: "/images/2_main1.jpg",
+    main1: "/images/gallery_1.jpg",
     saveTheDate: "/images/3_savethedate.jpg",
     envelope: "/images/4_envelope.jpg",
     handwrite: "/images/5_handwrite.jpg",
