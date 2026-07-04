@@ -92,7 +92,7 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full max-w-400 mx-auto overflow-x-hidden bg-black text-white font-['Pretendard','Apple_SD_Gothic_Neo','Malgun_Gothic',sans-serif] text-15 leading-relaxed">
+    <div className="w-full max-w-400 mx-auto overflow-x-hidden bg-white text-[var(--color-text)] font-['Pretendard','Apple_SD_Gothic_Neo','Malgun_Gothic',sans-serif] text-15 leading-relaxed">
       <MainSection />
       <ParentsSection />
       <VideoSection />
