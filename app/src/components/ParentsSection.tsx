@@ -5,7 +5,7 @@ export function ParentsSection() {
     <section className="w-full bg-white text-center p-0 m-0">
       <img
         className="w-full block"
-        src="/images/parents_film.png"
+        src="/images/parents_film_v2.png"
         alt=""
       />
     </section>
