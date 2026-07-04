@@ -1,0 +1,104 @@
+/* ============================================================
+   ARCADE HUB — Design Token Theme
+   ============================================================ */
+
+:root {
+  /* Palette */
+  --color-bg:           hsl(240 20% 5%);
+  --color-bg-panel:     hsl(240 27% 8%);
+  --color-bg-card:      hsl(240 27% 10%);
+  --color-border:       hsl(240 36% 18%);
+
+  --color-neon-green:   hsl(111 100% 54%);
+  --color-neon-cyan:    hsl(180 100% 50%);
+  --color-neon-pink:    hsl(300 100% 50%);
+  --color-neon-yellow:  hsl(60 100% 50%);
+  --color-neon-orange:  hsl(24 100% 50%);
+  --color-neon-red:     hsl(345 100% 50%);
+  --color-neon-blue:    hsl(211 100% 50%);
+
+  --color-text-primary: hsl(240 100% 94%);
+  --color-text-muted:   hsl(240 17% 40%);
+  --color-text-dim:     hsl(240 25% 27%);
+
+  /* Glow shadows */
+  --glow-green:  0 0 6px hsl(111 100% 54%), 0 0 20px hsl(111 100% 54% / 0.4), 0 0 40px hsl(111 100% 54% / 0.2);
+  --glow-cyan:   0 0 6px hsl(180 100% 50%), 0 0 20px hsl(180 100% 50% / 0.4), 0 0 40px hsl(180 100% 50% / 0.2);
+  --glow-pink:   0 0 6px hsl(300 100% 50%), 0 0 20px hsl(300 100% 50% / 0.4), 0 0 40px hsl(300 100% 50% / 0.2);
+  --glow-yellow: 0 0 6px hsl(60 100% 50%), 0 0 20px hsl(60 100% 50% / 0.4), 0 0 40px hsl(60 100% 50% / 0.2);
+  --glow-orange: 0 0 6px hsl(24 100% 50%), 0 0 20px hsl(24 100% 50% / 0.4), 0 0 40px hsl(24 100% 50% / 0.2);
+
+  /* Border glows */
+  --border-glow-green:  0 0 8px hsl(111 100% 54% / 0.4), inset 0 0 8px hsl(111 100% 54% / 0.13);
+  --border-glow-cyan:   0 0 8px hsl(180 100% 50% / 0.4), inset 0 0 8px hsl(180 100% 50% / 0.13);
+  --border-glow-pink:   0 0 8px hsl(300 100% 50% / 0.4), inset 0 0 8px hsl(300 100% 50% / 0.13);
+  --border-glow-yellow: 0 0 8px hsl(60 100% 50% / 0.4), inset 0 0 8px hsl(60 100% 50% / 0.13);
+
+  /* Tetromino colours */
+  --tet-I: hsl(180 100% 50%);
+  --tet-O: hsl(60 100% 50%);
+  --tet-T: hsl(288 100% 50%);
+  --tet-S: hsl(111 100% 54%);
+  --tet-Z: hsl(345 100% 50%);
+  --tet-J: hsl(211 100% 50%);
+  --tet-L: hsl(24 100% 50%);
+
+  /* Layout */
+  --header-height: 80px;
+  --card-width: 260px;
+  --card-height: 300px;
+
+  /* Animation speeds */
+  --anim-fast:   150ms;
+  --anim-medium: 300ms;
+  --anim-slow:   600ms;
+}
+
+/* CRT Scanline overlay — applied to elements with .scanlines class */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  z-index: 9999;
+}
+
+/* CRT flicker animation */
+@keyframes crt-flicker {
+  0%   { opacity: 1.0; }
+  92%  { opacity: 1.0; }
+  93%  { opacity: 0.92; }
+  94%  { opacity: 1.0; }
+  100% { opacity: 1.0; }
+}
+
+/* Blink animation for blinking text */
+@keyframes blink {
+  0%, 49%  { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { text-shadow: var(--glow-green); }
+  50%       { text-shadow: 0 0 2px hsl(111 100% 54%); }
+}
+
+/* Slide up */
+@keyframes slide-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}

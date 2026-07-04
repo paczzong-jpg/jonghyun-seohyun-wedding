@@ -1,0 +1,245 @@
+import { DEFAULT_EVENT_CODE } from "@/lib/event-constants"
+import type {
+  DrawPrize,
+  DrawWinner,
+  Participant,
+  Question,
+  QuizAnswer,
+  QuizPlayer,
+  QuizQuestion,
+  QuizSession,
+  Session,
+} from "@/lib/event-types"
+
+function nowIso(): string {
+  return new Date().toISOString()
+}
+
+export const SESSIONS: Session[] = [
+  {
+    id: "keynote",
+    title: "오프닝 — MISO Coder 운영 방향",
+    speaker: "Young",
+    organization: "기획자 · MISO PO",
+    description: "행사 목표, 오늘 다룰 MISO Coder 경험, 참가자가 함께 확인할 운영 포인트를 공유합니다.",
+    keywords: ["Product", "MISO PO", "Roadmap"],
+    startTime: "10:00",
+    endTime: "11:00",
+    color: "blue",
+  },
+  {
+    id: "frontend",
+    title: "Vite 앱 템플릿과 FE 구현 흐름",
+    speaker: "Eugene",
+    organization: "FE 개발",
+    description: "MISO Coder가 생성하는 Vite React 앱의 화면 구조와 실시간 참여 UI 구현 흐름을 설명합니다.",
+    keywords: ["Vite", "React", "Frontend"],
+    startTime: "11:00",
+    endTime: "12:00",
+    color: "green",
+  },
+  {
+    id: "backend",
+    title: "PocketBase 런타임과 이벤트 데이터",
+    speaker: "Kade",
+    organization: "BE 개발",
+    description: "체크인, Q&A, 라이브 퀴즈, 경품추첨 데이터를 PocketBase로 운영하는 패턴을 공유합니다.",
+    keywords: ["PocketBase", "Backend", "Realtime"],
+    startTime: "13:30",
+    endTime: "14:30",
+    color: "blue",
+  },
+  {
+    id: "operations",
+    title: "운영 안정성과 실시간 화면",
+    speaker: "Han",
+    organization: "SRE",
+    description: "행사 현장에서 중요한 네트워크 복구, realtime fallback, 발표자 화면 운영 기준을 다룹니다.",
+    keywords: ["SRE", "Realtime", "Fallback"],
+    startTime: "14:30",
+    endTime: "15:30",
+    color: "green",
+  },
+  {
+    id: "ux-panel",
+    title: "패널 토크 — 사용자가 바로 이해하는 행사 UX",
+    speaker: "Heather",
+    organization: "UI/UX",
+    description: "QR 진입, 모바일 퀴즈, 큰 화면 발표 흐름을 사용자가 헷갈리지 않게 설계하는 기준을 나눕니다.",
+    keywords: ["UI/UX", "Mobile", "Event"],
+    startTime: "16:00",
+    endTime: "17:30",
+    color: "orange",
+  },
+]
+
+export const fallbackParticipants: Participant[] = [
+  {
+    id: "p_001",
+    name: "Ally",
+    affiliation: "MISO",
+    email: "ally@example.com",
+    phone: "010-0000-0001",
+    agreed: true,
+    checkedIn: true,
+    checkedInAt: nowIso(),
+    eventCode: DEFAULT_EVENT_CODE,
+    joinCode: DEFAULT_EVENT_CODE,
+    createdAt: nowIso(),
+  },
+  {
+    id: "p_002",
+    name: "Young",
+    affiliation: "기획자 · MISO PO",
+    email: "young@example.com",
+    phone: "010-0000-0002",
+    agreed: true,
+    checkedIn: true,
+    checkedInAt: nowIso(),
+    eventCode: DEFAULT_EVENT_CODE,
+    joinCode: DEFAULT_EVENT_CODE,
+    createdAt: nowIso(),
+  },
+  {
+    id: "p_003",
+    name: "Eugene",
+    affiliation: "FE 개발",
+    email: "eugene@example.com",
+    phone: "010-0000-0003",
+    agreed: true,
+    checkedIn: true,
+    checkedInAt: nowIso(),
+    eventCode: DEFAULT_EVENT_CODE,
+    joinCode: DEFAULT_EVENT_CODE,
+    createdAt: nowIso(),
+  },
+  {
+    id: "p_004",
+    name: "Kade",
+    affiliation: "BE 개발",
+    email: "kade@example.com",
+    phone: "010-0000-0004",
+    agreed: true,
+    checkedIn: true,
+    checkedInAt: nowIso(),
+    eventCode: DEFAULT_EVENT_CODE,
+    joinCode: DEFAULT_EVENT_CODE,
+    createdAt: nowIso(),
+  },
+  {
+    id: "p_005",
+    name: "Han",
+    affiliation: "SRE",
+    email: "han@example.com",
+    phone: "010-0000-0005",
+    agreed: true,
+    checkedIn: true,
+    checkedInAt: nowIso(),
+    eventCode: DEFAULT_EVENT_CODE,
+    joinCode: DEFAULT_EVENT_CODE,
+    createdAt: nowIso(),
+  },
+  {
+    id: "p_006",
+    name: "Heather",
+    affiliation: "UI/UX",
+    email: "heather@example.com",
+    phone: "010-0000-0006",
+    agreed: true,
+    checkedIn: false,
+    eventCode: DEFAULT_EVENT_CODE,
+    joinCode: DEFAULT_EVENT_CODE,
+    createdAt: nowIso(),
+  },
+]
+
+export const fallbackQuestions: Question[] = []
+
+export const fallbackQuizSession: QuizSession = {
+  id: "quiz_main",
+  eventCode: DEFAULT_EVENT_CODE,
+  title: "MISO Coder 라이브 퀴즈",
+  status: "lobby",
+  currentQuestionId: "quiz_q1",
+  currentQuestionIndex: 0,
+  showLeaderboard: false,
+  createdAt: nowIso(),
+}
+
+export const fallbackQuizQuestions: QuizQuestion[] = [
+  {
+    id: "quiz_q1",
+    quizSessionId: "quiz_main",
+    order: 1,
+    prompt: "MISO Coder 이벤트 앱 보일러플레이트의 기본 프런트엔드 런타임은 무엇인가요?",
+    choices: [
+      { id: "a", label: "Next.js App Router" },
+      { id: "b", label: "Vite + React" },
+      { id: "c", label: "Vue + Nuxt" },
+      { id: "d", label: "SvelteKit" },
+    ],
+    correctChoiceId: "b",
+    timeLimitSec: 20,
+    basePoints: 1000,
+    speedBonusPoints: 500,
+    explanation: "MISO Coder website app 보일러플레이트는 Vite + React overlay입니다.",
+  },
+  {
+    id: "quiz_q2",
+    quizSessionId: "quiz_main",
+    order: 2,
+    prompt: "라이브 퀴즈에서 빠른 정답자에게 추가 점수를 주는 이유는 무엇인가요?",
+    choices: [
+      { id: "a", label: "동점자를 줄이고 몰입도를 높이기 위해" },
+      { id: "b", label: "네트워크 지연을 늘리기 위해" },
+      { id: "c", label: "오답자에게 보너스를 주기 위해" },
+      { id: "d", label: "진행자 화면을 숨기기 위해" },
+    ],
+    correctChoiceId: "a",
+    timeLimitSec: 20,
+    basePoints: 1000,
+    speedBonusPoints: 500,
+    explanation: "정답과 응답 속도를 함께 반영하면 행사 현장의 경쟁감과 몰입도가 살아납니다.",
+  },
+  {
+    id: "quiz_q3",
+    quizSessionId: "quiz_main",
+    order: 3,
+    prompt: "경품추첨 후보에 포함되는 참가자는?",
+    choices: [
+      { id: "a", label: "사전 신청자 전체" },
+      { id: "b", label: "체크인 완료 참가자" },
+      { id: "c", label: "Q&A를 작성한 사람만" },
+      { id: "d", label: "운영자 계정만" },
+    ],
+    correctChoiceId: "b",
+    timeLimitSec: 15,
+    basePoints: 1000,
+    speedBonusPoints: 500,
+    explanation: "현장 행사 경품추첨은 체크인 완료자를 기본 후보로 봅니다.",
+  },
+]
+
+export const fallbackQuizPlayers: QuizPlayer[] = []
+export const fallbackQuizAnswers: QuizAnswer[] = []
+
+export const fallbackPrizes: DrawPrize[] = [
+  {
+    id: "prize_1",
+    eventCode: DEFAULT_EVENT_CODE,
+    name: "MISO 굿즈 패키지",
+    description: "체크인 완료 참가자 대상 메인 경품",
+    quantity: 1,
+    order: 1,
+  },
+  {
+    id: "prize_2",
+    eventCode: DEFAULT_EVENT_CODE,
+    name: "커피 쿠폰",
+    description: "세션 중간 추첨용 소형 경품",
+    quantity: 5,
+    order: 2,
+  },
+]
+
+export const fallbackWinners: DrawWinner[] = []

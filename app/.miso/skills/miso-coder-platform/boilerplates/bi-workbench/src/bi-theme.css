@@ -1,0 +1,209 @@
+/**
+ * bi-theme — Atlassian Design System 스킨 (GOAL v3)
+ *
+ * 템플릿 index.css의 시맨틱 토큰을 재정의만 한다(oklch 전용, hex 금지 — 계약).
+ * Atlassian DS 팔레트를 oklch로 변환해 적용: primary 0052CC(blue), ink 172B4D(navy),
+ * 라이트 캔버스 + 라이트그레이 서피스, sm radius, 2겹 카드 그림자. 라이트 기본.
+ * 컴포넌트는 계속 토큰 클래스만 쓰므로 기존 계약이 유지된다.
+ */
+
+:root {
+  /* Neutral & surface — Atlassian white canvas + light-gray surfaces */
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.2917 0.0676 260.37); /* ink 172B4D navy */
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.2917 0.0676 260.37);
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.2917 0.0676 260.37);
+
+  /* Primary — Atlassian blue 0052CC (AAA 6.8:1 on white) */
+  --color-primary: oklch(0.4802 0.2012 260.48);
+  --color-primary-foreground: oklch(1 0 0);
+
+  /* Secondary/muted/accent — surface-1/2 grays + subtle blue */
+  --color-secondary: oklch(0.97 0.0029 264.54); /* surface-1 F4F5F7 */
+  --color-secondary-foreground: oklch(0.2917 0.0676 260.37);
+  --color-muted: oklch(0.97 0.0029 264.54);
+  --color-muted-foreground: oklch(0.5669 0.0356 261.65); /* ink-muted 6B778C */
+  --color-accent: oklch(0.9364 0.0305 258.94); /* subtle-blue DEEBFF */
+  --color-accent-foreground: oklch(0.4251 0.1645 259.85); /* primary-hover */
+
+  --color-destructive: oklch(0.5899 0.21 33.44); /* danger DE350B */
+  --color-destructive-foreground: oklch(1 0 0);
+
+  --color-border: oklch(0.9096 0.0071 268.54); /* DFE1E6 */
+  --color-input: oklch(0.8277 0.0142 258.35); /* C1C7D0 */
+  --color-ring: oklch(0.4802 0.2012 260.48); /* focus = primary blue */
+
+  /* Categorical chart palette — Atlassian product/semantic hues */
+  --color-chart-1: oklch(0.4802 0.2012 260.48); /* blue */
+  --color-chart-2: oklch(0.7215 0.1287 216.76); /* teal 00B8D9 */
+  --color-chart-3: oklch(0.5197 0.1626 286.5); /* discovery purple 6554C0 */
+  --color-chart-4: oklch(0.7489 0.1796 57.82); /* warning orange FF8B00 */
+  --color-chart-5: oklch(0.5506 0.1223 161.18); /* success green 00875A */
+
+  /* Sidebar tokens (템플릿 정의) */
+  --color-sidebar: oklch(0.97 0.0029 264.54);
+  --color-sidebar-foreground: oklch(0.2917 0.0676 260.37);
+  --color-sidebar-primary: oklch(0.4802 0.2012 260.48);
+  --color-sidebar-primary-foreground: oklch(1 0 0);
+  --color-sidebar-accent: oklch(0.9364 0.0305 258.94);
+  --color-sidebar-accent-foreground: oklch(0.4251 0.1645 259.85);
+  --color-sidebar-border: oklch(0.9096 0.0071 268.54);
+  --color-sidebar-ring: oklch(0.4802 0.2012 260.48);
+
+  /* Atlassian: tight radii (sm 3px / md 4px / lg 8px) */
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* Semantic lozenge/status tokens (Atlassian) */
+  --bi-success: oklch(0.5506 0.1223 161.18);
+  --bi-success-bg: oklch(0.95 0.03 162);
+  --bi-warning: oklch(0.62 0.13 58);
+  --bi-warning-bg: oklch(0.95 0.045 75);
+  --bi-danger: oklch(0.5899 0.21 33.44);
+  --bi-danger-bg: oklch(0.95 0.035 30);
+  --bi-discovery: oklch(0.5197 0.1626 286.5);
+  --bi-discovery-bg: oklch(0.95 0.03 287);
+  --bi-info-bg: oklch(0.9364 0.0305 258.94);
+
+  --bi-dot: oklch(0.2917 0.0676 260.37 / 0.06);
+  --bi-font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+
+  /* Atlassian 2-layer elevation (card + ring) */
+  --bi-shadow-card: 0 1px 1px oklch(0.29 0.068 260 / 0.2), 0 0 1px oklch(0.29 0.068 260 / 0.31);
+  --bi-shadow-overlay: 0 8px 16px -4px oklch(0.29 0.068 260 / 0.28), 0 0 1px oklch(0.29 0.068 260 / 0.31);
+}
+
+.dark {
+  /* Atlassian dark — navy-black surfaces 1D2125/22272B, text C7D1DB */
+  --color-background: oklch(0.2454 0.0096 248.22);
+  --color-foreground: oklch(0.856 0.0177 248.03);
+  --color-card: oklch(0.2694 0.0104 242.08);
+  --color-card-foreground: oklch(0.856 0.0177 248.03);
+  --color-popover: oklch(0.2974 0.0124 243.26);
+  --color-popover-foreground: oklch(0.856 0.0177 248.03);
+
+  --color-primary: oklch(0.6957 0.1612 257.18); /* 579DFF */
+  --color-primary-foreground: oklch(0.2869 0.0455 257.84);
+
+  --color-secondary: oklch(0.2974 0.0124 243.26);
+  --color-secondary-foreground: oklch(0.856 0.0177 248.03);
+  --color-muted: oklch(0.2974 0.0124 243.26);
+  --color-muted-foreground: oklch(0.6829 0.0292 249.97); /* 8C9BAB */
+  --color-accent: oklch(0.34 0.03 250);
+  --color-accent-foreground: oklch(0.856 0.0177 248.03);
+
+  --color-destructive: oklch(0.7089 0.1674 26.04); /* F87168 */
+  --color-destructive-foreground: oklch(0.2454 0.0096 248.22);
+
+  --color-border: oklch(0.3706 0.0196 248.35); /* 38414A */
+  --color-input: oklch(0.3706 0.0196 248.35);
+  --color-ring: oklch(0.6957 0.1612 257.18);
+
+  --color-chart-1: oklch(0.6957 0.1612 257.18); /* blue */
+  --color-chart-2: oklch(0.7734 0.0935 221.87); /* teal */
+  --color-chart-3: oklch(0.7035 0.1382 290.02); /* discovery */
+  --color-chart-4: oklch(0.86 0.1524 91.88); /* warning */
+  --color-chart-5: oklch(0.7652 0.1403 161.99); /* success */
+
+  --color-sidebar: oklch(0.2454 0.0096 248.22);
+  --color-sidebar-foreground: oklch(0.856 0.0177 248.03);
+  --color-sidebar-primary: oklch(0.6957 0.1612 257.18);
+  --color-sidebar-primary-foreground: oklch(0.2869 0.0455 257.84);
+  --color-sidebar-accent: oklch(0.34 0.03 250);
+  --color-sidebar-accent-foreground: oklch(0.856 0.0177 248.03);
+  --color-sidebar-border: oklch(0.3706 0.0196 248.35);
+  --color-sidebar-ring: oklch(0.6957 0.1612 257.18);
+
+  --bi-success: oklch(0.7652 0.1403 161.99);
+  --bi-success-bg: oklch(0.34 0.06 162);
+  --bi-warning: oklch(0.86 0.1524 91.88);
+  --bi-warning-bg: oklch(0.36 0.06 80);
+  --bi-danger: oklch(0.7089 0.1674 26.04);
+  --bi-danger-bg: oklch(0.34 0.06 30);
+  --bi-discovery: oklch(0.7035 0.1382 290.02);
+  --bi-discovery-bg: oklch(0.34 0.05 288);
+  --bi-info-bg: oklch(0.34 0.05 258);
+
+  --bi-dot: oklch(0.856 0.0177 248 / 0.06);
+  --bi-shadow-card: 0 1px 1px oklch(0 0 0 / 0.4), 0 0 1px oklch(0 0 0 / 0.5);
+  --bi-shadow-overlay: 0 8px 16px -4px oklch(0 0 0 / 0.5), 0 0 1px oklch(0 0 0 / 0.6);
+}
+
+/* Atlassian: 14px system-font body, navy ink, dense */
+body {
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+/* 숫자·차트 축은 등폭으로 (데이터 정렬 가독성) */
+.tabular-nums,
+.recharts-wrapper text {
+  font-family: var(--bi-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: color-mix(in oklch, var(--color-primary) 22%, transparent);
+}
+
+/* Atlassian 카드 엘리베이션 (card + ring 2겹) */
+.bi-hairline {
+  box-shadow: var(--bi-shadow-card);
+}
+
+/* 미세 도트 텍스처 배경 */
+.bi-dots {
+  background-image: radial-gradient(var(--bi-dot) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Lozenge — Atlassian 시그니처 상태 배지 */
+.bi-lozenge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 16px;
+  padding: 0 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+.bi-lozenge-default { background: var(--color-secondary); color: var(--color-muted-foreground); }
+.bi-lozenge-info { background: var(--bi-info-bg); color: var(--color-primary); }
+.bi-lozenge-success { background: var(--bi-success-bg); color: var(--bi-success); }
+.bi-lozenge-warning { background: var(--bi-warning-bg); color: var(--bi-warning); }
+.bi-lozenge-danger { background: var(--bi-danger-bg); color: var(--bi-danger); }
+.bi-lozenge-discovery { background: var(--bi-discovery-bg); color: var(--bi-discovery); }
+
+/* 진입 모션 — Atlassian 스펙: 기능적·빠름(ease-out) */
+@keyframes bi-rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.bi-stagger > * {
+  animation: bi-rise 240ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
+}
+.bi-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.bi-stagger > *:nth-child(2) { animation-delay: 30ms; }
+.bi-stagger > *:nth-child(3) { animation-delay: 60ms; }
+.bi-stagger > *:nth-child(4) { animation-delay: 90ms; }
+.bi-stagger > *:nth-child(5) { animation-delay: 120ms; }
+.bi-stagger > *:nth-child(6) { animation-delay: 150ms; }
+.bi-stagger > *:nth-child(7) { animation-delay: 180ms; }
+.bi-stagger > *:nth-child(8) { animation-delay: 210ms; }
+.bi-stagger > *:nth-child(9) { animation-delay: 240ms; }
+.bi-stagger > *:nth-child(n + 10) { animation-delay: 270ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bi-stagger > * {
+    animation: none;
+  }
+}

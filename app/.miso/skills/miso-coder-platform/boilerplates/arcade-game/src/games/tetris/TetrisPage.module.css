@@ -1,0 +1,185 @@
+.page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  padding: 16px;
+  position: relative;
+  overflow: auto;
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+/* ── Left Panel ── */
+.leftPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 130px;
+}
+
+.backBtn {
+  background: transparent;
+  border: 1px solid var(--color-neon-pink);
+  color: var(--color-neon-pink);
+  font-size: 0.4rem;
+  padding: 10px 12px;
+  letter-spacing: 0.1em;
+  transition: background var(--anim-fast), color var(--anim-fast);
+}
+
+.backBtn:hover {
+  background: var(--color-neon-pink);
+  color: var(--color-bg);
+}
+
+.statBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid var(--color-border);
+  padding: 12px;
+  background: var(--color-bg-card);
+}
+
+.statLabel {
+  font-size: 0.38rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.15em;
+}
+
+.statValue {
+  font-size: 0.9rem;
+  color: var(--color-neon-green);
+  text-shadow: var(--glow-green);
+  letter-spacing: 0.05em;
+}
+
+.statValueAlt {
+  font-size: 0.9rem;
+  color: var(--color-neon-yellow);
+  text-shadow: var(--glow-yellow);
+  letter-spacing: 0.05em;
+}
+
+/* ── Canvas ── */
+.canvasWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameCanvas {
+  display: block;
+  image-rendering: pixelated;
+}
+
+/* Start overlay rendered on top of canvas */
+.startOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.startTitle {
+  font-size: 1.4rem;
+  color: var(--color-neon-cyan);
+  text-shadow: var(--glow-cyan);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.startSub {
+  font-size: 0.45rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  animation: blink 1.2s step-start infinite;
+}
+
+.startBtn {
+  background: transparent;
+  border: 2px solid var(--color-neon-green);
+  color: var(--color-neon-green);
+  font-size: 0.5rem;
+  padding: 14px 20px;
+  letter-spacing: 0.1em;
+  text-shadow: var(--glow-green);
+  transition: background var(--anim-fast), color var(--anim-fast);
+}
+
+.startBtn:hover {
+  background: var(--color-neon-green);
+  color: var(--color-bg);
+  text-shadow: none;
+}
+
+/* ── Right Panel ── */
+.rightPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 140px;
+}
+
+.hudCanvas {
+  image-rendering: pixelated;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+}
+
+.controls {
+  border: 1px solid var(--color-border);
+  padding: 12px;
+  background: var(--color-bg-card);
+}
+
+.controlsTitle {
+  font-size: 0.38rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+}
+
+.controlsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.32rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.05em;
+}
+
+.controlsList kbd {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.32rem;
+  color: var(--color-neon-cyan);
+  margin-right: 6px;
+}
+
+.pauseBtn {
+  background: transparent;
+  border: 1px solid var(--color-neon-yellow);
+  color: var(--color-neon-yellow);
+  font-size: 0.4rem;
+  padding: 10px 12px;
+  letter-spacing: 0.1em;
+  transition: background var(--anim-fast), color var(--anim-fast);
+}
+
+.pauseBtn:hover {
+  background: var(--color-neon-yellow);
+  color: var(--color-bg);
+}

@@ -1,0 +1,292 @@
+/* ────────────────────────────────────────────────
+   Deck 전용 스타일 — 1280×720 고정 캔버스 좌표계.
+   색상·폰트 값은 src/lib/deck/themes.ts 가 CSS 변수로 주입한다.
+   여기에 hex 를 직접 쓰지 말 것 (PPTX 내보내기와 어긋남).
+   ──────────────────────────────────────────────── */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap");
+
+/* ── 스테이지: 뷰포트를 채우고 캔버스를 중앙 정렬 ── */
+
+.deck-stage {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--deck-bg) 86%, #000 14%);
+}
+
+.deck-canvas {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  flex: none;
+  overflow: hidden;
+  background: var(--deck-bg);
+  color: var(--deck-ink);
+  font-family: var(--deck-font-body);
+  transform-origin: center center;
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
+}
+
+.deck-canvas,
+.deck-canvas * {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  /* 한국어 어절 단위 줄바꿈 — 음절 중간에서 끊기지 않게 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ── 슬라이드 공통 ── */
+
+.deck-slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.deck-slide-enter {
+  animation: deck-slide-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes deck-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-slide-enter {
+    animation: none;
+  }
+}
+
+/* ── 타이포 스케일 ── */
+
+.deck-kicker {
+  font-family: var(--deck-font-body);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--deck-accent);
+}
+
+.deck-slide-title {
+  font-family: var(--deck-font-display);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--deck-ink);
+}
+
+.deck-display {
+  font-family: var(--deck-font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--deck-ink);
+}
+
+.deck-lead {
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--deck-muted);
+}
+
+.deck-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--deck-muted);
+}
+
+.deck-caption {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--deck-muted);
+}
+
+.deck-num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+}
+
+/* ── 표면·장식 ── */
+
+.deck-surface {
+  background: var(--deck-surface);
+  border: 1px solid var(--deck-line);
+  border-radius: var(--deck-radius);
+}
+
+.deck-surface-soft {
+  background: var(--deck-surface-soft);
+  border: 1px solid var(--deck-line);
+  border-radius: var(--deck-radius);
+}
+
+/* 코너 워시 — 표지·섹션·마무리 같은 sparse 슬라이드 전용 장식 */
+.deck-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 52% at 88% 6%, var(--deck-accent-soft), transparent 70%),
+    radial-gradient(30% 44% at 4% 96%, var(--deck-accent2-soft), transparent 72%);
+}
+
+/* ── 푸터 ── */
+
+.deck-footer {
+  position: absolute;
+  left: 64px;
+  right: 64px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--deck-muted) 80%, transparent);
+}
+
+/* ── 컨트롤 바 ── */
+
+.deck-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  z-index: 30;
+  background: linear-gradient(90deg, var(--deck-accent), var(--deck-accent-2));
+  transition: width 240ms ease;
+}
+
+.deck-controls {
+  position: fixed;
+  right: 20px;
+  bottom: 18px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--deck-surface) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--deck-line) 70%, transparent);
+  backdrop-filter: blur(14px);
+  opacity: 0.35;
+  transition: opacity 180ms ease;
+}
+
+.deck-controls:hover,
+.deck-controls:focus-within {
+  opacity: 1;
+}
+
+.deck-controls[data-idle="true"]:not(:hover):not(:focus-within) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.deck-controls button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--deck-ink);
+  cursor: pointer;
+}
+
+.deck-controls button:hover {
+  background: var(--deck-accent-soft);
+}
+
+.deck-controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+  background: transparent;
+}
+
+.deck-controls .deck-counter {
+  min-width: 64px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--deck-muted);
+  user-select: none;
+}
+
+/* ── 오버뷰 그리드 ── */
+
+.deck-overview {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow-y: auto;
+  padding: 48px;
+  background: color-mix(in srgb, var(--deck-bg) 80%, #000 20%);
+}
+
+.deck-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.deck-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: var(--deck-bg);
+  cursor: pointer;
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+
+.deck-thumb:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--deck-accent) 55%, transparent);
+}
+
+.deck-thumb[data-active="true"] {
+  border-color: var(--deck-accent);
+}
+
+.deck-thumb-index {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  z-index: 2;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.deck-thumb-canvas {
+  width: 1280px;
+  height: 720px;
+  transform-origin: top left;
+  pointer-events: none;
+}

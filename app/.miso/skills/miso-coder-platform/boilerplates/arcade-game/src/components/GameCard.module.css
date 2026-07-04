@@ -1,0 +1,95 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: var(--card-width);
+  height: var(--card-height);
+  background: var(--color-bg-card);
+  border: 2px solid var(--accent, var(--color-neon-cyan));
+  box-shadow:
+    0 0 10px color-mix(in srgb, var(--accent, var(--color-neon-cyan)) 40%, transparent),
+    inset 0 0 10px color-mix(in srgb, var(--accent, var(--color-neon-cyan)) 10%, transparent);
+  transition: transform var(--anim-medium) ease, box-shadow var(--anim-medium) ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  animation: slide-up var(--anim-slow) ease both;
+}
+
+.accentCyan {
+  --accent: var(--color-neon-cyan);
+}
+
+.accentGreen {
+  --accent: var(--color-neon-green);
+}
+
+.card:hover:not(.comingSoon) {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--accent, var(--color-neon-cyan)) 70%, transparent),
+    inset 0 0 16px color-mix(in srgb, var(--accent, var(--color-neon-cyan)) 20%, transparent);
+}
+
+.comingSoon {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Preview block */
+.preview {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent, var(--color-neon-cyan)) 8%, var(--color-bg));
+  border-bottom: 2px solid var(--accent, var(--color-neon-cyan));
+  position: relative;
+}
+
+.previewTitle {
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--accent, var(--color-neon-cyan));
+  text-shadow:
+    0 0 10px var(--accent, var(--color-neon-cyan)),
+    0 0 30px color-mix(in srgb, var(--accent, var(--color-neon-cyan)) 50%, transparent);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Info block */
+.info {
+  padding: 10px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-size: 0.6rem;
+  color: var(--accent, var(--color-neon-cyan));
+  letter-spacing: 0.08em;
+  padding: 0 14px;
+}
+
+/* Play button */
+.playBtn {
+  margin: 0 14px 14px;
+  padding: 10px 8px;
+  background: transparent;
+  border: 2px solid var(--accent, var(--color-neon-cyan));
+  color: var(--accent, var(--color-neon-cyan));
+  font-size: 0.45rem;
+  letter-spacing: 0.08em;
+  transition: background var(--anim-fast), color var(--anim-fast);
+}
+
+.playBtn:hover:not(:disabled) {
+  background: var(--accent, var(--color-neon-cyan));
+  color: var(--color-bg);
+}
+
+.playBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

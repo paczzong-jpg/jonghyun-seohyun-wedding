@@ -1,0 +1,41 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 14px;
+}
+
+.heading {
+  font-size: 0.28rem;
+  color: var(--accent, var(--color-neon-cyan));
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+  opacity: 0.75;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 20px 36px 1fr;
+  gap: 4px;
+  align-items: center;
+  font-size: 0.3rem;
+  color: var(--color-text-primary);
+}
+
+.empty {
+  color: var(--color-text-dim);
+}
+
+.rank {
+  color: var(--accent, var(--color-neon-cyan));
+  opacity: 0.7;
+}
+
+.initials {
+  letter-spacing: 0.08em;
+}
+
+.score {
+  text-align: right;
+  letter-spacing: 0.04em;
+}

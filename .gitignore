@@ -1,0 +1,23 @@
+node_modules/
+.vite/
+dist/
+.coder/
+.opencode/
+.pocketbase/
+
+# Runtime / dev artifacts
+*.log
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
+*.local
+
+# TypeScript build cache
+tsconfig.tsbuildinfo
+
+# PocketBase
+pb_data/
+pb_migrations/

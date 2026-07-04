@@ -1,0 +1,56 @@
+/* ============================================================
+   ARCADE HUB — Global Reset + Base Styles
+   ============================================================ */
+
+/* Press Start 2P is loaded via index.html <link> */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
+}
+
+/* Scrollable pages override body overflow */
+.page-scrollable {
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Neon text utility classes */
+.neon-green  { color: var(--color-neon-green); text-shadow: var(--glow-green); }
+.neon-cyan   { color: var(--color-neon-cyan);  text-shadow: var(--glow-cyan);  }
+.neon-pink   { color: var(--color-neon-pink);  text-shadow: var(--glow-pink);  }
+.neon-yellow { color: var(--color-neon-yellow);text-shadow: var(--glow-yellow);}

@@ -1,0 +1,353 @@
+/* ────────────────────────────────────────────────
+   Scribe 미팅 노트 디자인 시스템 — "Editorial Stenographer".
+   웜 아이보리 페이퍼 위 딥 스프러스 그린 시그니처, 세리프 디스플레이.
+   shadcn 시맨틱 토큰 값을 오버라이드해 앱 아이덴티티를 만든다 —
+   컴포넌트는 표준 시맨틱 유틸리티(bg-background, text-primary…)만 사용.
+   ──────────────────────────────────────────────── */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap");
+
+:root {
+  /* 표면 — 웜 아이보리 페이퍼 위 크림 카드 */
+  --color-background: #f6f4ee;
+  --color-foreground: #201f1a;
+  --color-card: #fffdf8;
+  --color-card-foreground: #201f1a;
+  --color-popover: #fffdf8;
+  --color-popover-foreground: #201f1a;
+
+  /* 딥 스프러스 그린 주조색 */
+  --color-primary: #14604b;
+  --color-primary-foreground: #f7fbf8;
+  --color-secondary: #e7efe8;
+  --color-secondary-foreground: #14604b;
+  --color-accent: #e7efe8;
+  --color-accent-foreground: #0f5340;
+
+  --color-muted: #efece3;
+  --color-muted-foreground: #6d6c62;
+  --color-destructive: #c4392c;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #e5e1d4;
+  --color-input: #ddd9cb;
+  --color-ring: #14604b;
+
+  --radius-sm: 0.45rem;
+  --radius-md: 0.7rem;
+  --radius-lg: 0.95rem;
+  --radius-xl: 1.25rem;
+
+  /* 앱 전용 보조 토큰 */
+  --mn-font-display: "Noto Serif KR", "Pretendard Variable", serif;
+  --mn-hairline: #ebe8dd;
+  --mn-ink-faint: #98968a;
+  --mn-paper-deep: #f1eee5;
+  --mn-rec: #d64541;
+  --mn-live: #1d8a68;
+  --mn-cite: #14604b;
+  --mn-cite-bg: #e7efe8;
+  --mn-highlight: #f4ecd3;
+  --mn-shadow-card: 0 1px 2px rgba(32, 31, 26, 0.05), 0 6px 20px rgba(32, 31, 26, 0.05);
+  --mn-shadow-pop: 0 10px 34px rgba(32, 31, 26, 0.14);
+  /* 화자 팔레트 (도트·라벨) — 라이트/다크 공용으로 중간 채도 */
+  --mn-speaker-1: #14604b;
+  --mn-speaker-2: #a05c22;
+  --mn-speaker-3: #4b5aa7;
+  --mn-speaker-4: #9d4467;
+  --mn-speaker-5: #58701f;
+  --mn-speaker-6: #6b4fa1;
+  /* 녹음 스테이지(라이트 모드에서도 어두운 무대) */
+  --mn-stage: #131714;
+  --mn-stage-soft: #1c211d;
+  --mn-stage-line: #2b322d;
+  --mn-stage-ink: #eef2ee;
+  --mn-stage-faint: #8b948d;
+}
+
+.dark {
+  --color-background: #141613;
+  --color-foreground: #ece9e0;
+  --color-card: #1c1f1b;
+  --color-card-foreground: #ece9e0;
+  --color-popover: #21241f;
+  --color-popover-foreground: #ece9e0;
+
+  --color-primary: #55b492;
+  --color-primary-foreground: #0c1f18;
+  --color-secondary: #24312a;
+  --color-secondary-foreground: #a4d6c1;
+  --color-accent: #24312a;
+  --color-accent-foreground: #a4d6c1;
+
+  --color-muted: #22251f;
+  --color-muted-foreground: #a09e92;
+  --color-destructive: #e5564a;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #2b2e28;
+  --color-input: #34372f;
+  --color-ring: #55b492;
+
+  --mn-hairline: #262922;
+  --mn-ink-faint: #7c7a6e;
+  --mn-paper-deep: #191c17;
+  --mn-rec: #e5564a;
+  --mn-live: #55b492;
+  --mn-cite: #55b492;
+  --mn-cite-bg: #24312a;
+  --mn-highlight: #34301e;
+  --mn-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 22px rgba(0, 0, 0, 0.35);
+  --mn-shadow-pop: 0 12px 36px rgba(0, 0, 0, 0.55);
+  --mn-speaker-1: #55b492;
+  --mn-speaker-2: #d29a5b;
+  --mn-speaker-3: #8b98d8;
+  --mn-speaker-4: #cd7f9f;
+  --mn-speaker-5: #a3bd5e;
+  --mn-speaker-6: #a68bd3;
+}
+
+body {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 타이포 유틸 ─────────────────────────────── */
+
+.mn-display {
+  font-family: var(--mn-font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.mn-clock {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* ── 페이퍼 카드 (몰딩된 표면) ───────────────── */
+
+.mn-card {
+  background: var(--color-card);
+  border: 1px solid var(--mn-hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--mn-shadow-card);
+}
+
+/* ── 녹음 인디케이터 ─────────────────────────── */
+
+@keyframes mn-rec-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(214, 69, 65, 0.45); }
+  50% { box-shadow: 0 0 0 9px rgba(214, 69, 65, 0); }
+}
+
+.mn-rec-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 9999px;
+  background: var(--mn-rec);
+  animation: mn-rec-pulse 1.6s ease-out infinite;
+}
+
+/* 라이브 전사 라인 등장 */
+@keyframes mn-line-in {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mn-line-in {
+  animation: mn-line-in 0.35s ease-out both;
+}
+
+/* 처리중 shimmer 텍스트 */
+@keyframes mn-shimmer {
+  0% { background-position: 130% 0; }
+  100% { background-position: -30% 0; }
+}
+
+.mn-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-muted-foreground) 40%,
+    var(--color-foreground) 50%,
+    var(--color-muted-foreground) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: mn-shimmer 1.8s linear infinite;
+}
+
+/* ── 트랜스크립트 뷰어 ───────────────────────── */
+
+.mn-seg {
+  border-radius: var(--radius-md);
+  transition: background-color 0.25s ease;
+  scroll-margin: 96px;
+}
+
+.mn-seg:hover {
+  background: var(--color-muted);
+}
+
+.mn-seg-active {
+  background: var(--mn-highlight);
+}
+
+.mn-seg-active:hover {
+  background: var(--mn-highlight);
+}
+
+mark.mn-mark {
+  background: var(--mn-highlight);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
+/* ── 타임스탬프 인용 칩 ──────────────────────── */
+
+.mn-cite-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0 0.42rem;
+  margin: 0 0.12rem;
+  border-radius: 999px;
+  background: var(--mn-cite-bg);
+  color: var(--mn-cite);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35rem;
+  height: 1.35rem;
+  vertical-align: 0.08em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.mn-cite-chip:hover {
+  border-color: var(--mn-cite);
+  transform: translateY(-1px);
+}
+
+.mn-cite-chip[data-inert="true"] {
+  cursor: default;
+}
+
+.mn-cite-chip[data-inert="true"]:hover {
+  border-color: transparent;
+  transform: none;
+}
+
+/* ── 회의록 문서 렌더 ────────────────────────── */
+
+.mn-doc {
+  font-size: 0.925rem;
+  line-height: 1.75;
+}
+
+.mn-doc > *:first-child { margin-top: 0; }
+
+.mn-doc h1,
+.mn-doc h2,
+.mn-doc h3 {
+  font-family: var(--mn-font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground);
+}
+
+.mn-doc h1 { font-size: 1.35rem; margin: 1.9rem 0 0.8rem; }
+.mn-doc h2 {
+  font-size: 1.12rem;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--mn-hairline);
+  scroll-margin: 84px;
+}
+.mn-doc h3 { font-size: 0.98rem; margin: 1.4rem 0 0.5rem; }
+.mn-doc p { margin: 0.65rem 0; }
+.mn-doc ul, .mn-doc ol { margin: 0.65rem 0; padding-left: 1.35rem; }
+.mn-doc ul { list-style: disc; }
+.mn-doc ol { list-style: decimal; }
+.mn-doc li { margin: 0.3rem 0; }
+.mn-doc li::marker { color: var(--mn-ink-faint); }
+.mn-doc strong { font-weight: 650; }
+.mn-doc blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 0.9rem 0;
+  color: var(--color-muted-foreground);
+}
+.mn-doc code {
+  background: var(--color-muted);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.83em;
+}
+.mn-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.86rem;
+}
+.mn-doc th, .mn-doc td {
+  border: 1px solid var(--mn-hairline);
+  padding: 0.45rem 0.65rem;
+  text-align: left;
+}
+.mn-doc th { background: var(--mn-paper-deep); font-weight: 600; }
+.mn-doc input[type="checkbox"] {
+  accent-color: var(--color-primary);
+  margin-right: 0.4rem;
+  vertical-align: -0.1em;
+}
+.mn-doc li:has(> input[type="checkbox"]) { list-style: none; margin-left: -1.2rem; }
+
+/* ── 스크롤바 ────────────────────────────────── */
+
+.mn-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-input) transparent;
+}
+
+.mn-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.mn-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-input);
+  border-radius: 8px;
+}
+.mn-scroll::-webkit-scrollbar-track { background: transparent; }
+
+/* ── 녹음 스테이지 ───────────────────────────── */
+
+.mn-stage {
+  background:
+    radial-gradient(1100px 500px at 50% -8%, rgba(85, 180, 146, 0.09), transparent 62%),
+    var(--mn-stage);
+  color: var(--mn-stage-ink);
+}
+
+.mn-stage-card {
+  background: var(--mn-stage-soft);
+  border: 1px solid var(--mn-stage-line);
+  border-radius: var(--radius-lg);
+}
+
+/* 페이지 배경 종이 결 (아주 옅은 노이즈 대체 그레인) */
+.mn-grain {
+  background-image:
+    radial-gradient(rgba(32, 31, 26, 0.025) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.dark .mn-grain {
+  background-image:
+    radial-gradient(rgba(236, 233, 224, 0.02) 1px, transparent 1px);
+}

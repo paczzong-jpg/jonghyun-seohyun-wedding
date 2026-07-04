@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+/* 마케팅 스튜디오 디자인 시스템 — "교정쇄(Proof) 에디토리얼".
+   인쇄소 교정지 위에 크리에이티브를 올려놓고 보는 도구라는 컨셉:
+   웜 아이보리 페이퍼(노이즈 질감) · 잉크 블랙 · 버밀리언 · 풀폭 헤어라인 구획 ·
+   오버사이즈 디스플레이 · 모노스페이스 수치 · 화면당 하나의 잉크 반전 모먼트.
+   박스(보더 카드) 대신 헤어라인과 여백으로 위계를 만든다.
+   shadcn 시맨틱 토큰은 .ms-app 스코프에서 재정의 — 템플릿 ui/ 파일은 무수정. */
+
+.ms-app {
+  --color-background: #f7f4ec;
+  --color-foreground: #191813;
+  --color-card: #fffdf8;
+  --color-card-foreground: #191813;
+  --color-popover: #fffdf8;
+  --color-popover-foreground: #191813;
+  --color-primary: #e8501f;
+  --color-primary-foreground: #fffdf9;
+  --color-secondary: #eeeade;
+  --color-secondary-foreground: #3c3a33;
+  --color-muted: #efebdf;
+  --color-muted-foreground: #78745f;
+  --color-accent: #f1ede1;
+  --color-accent-foreground: #191813;
+  --color-destructive: #c92c1c;
+  --color-destructive-foreground: #c92c1c;
+  --color-border: #e0dac7;
+  --color-input: #cfc9b4;
+  --color-ring: #e8501f;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+
+  --ms-ink: #191813;
+  --ms-ink-soft: #24221c;
+  --ms-hairline: #ddd6c2;
+  --ms-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --ms-display-en: "Archivo", Pretendard, sans-serif;
+
+  background-color: #f7f4ec;
+  background-image:
+    /* 종이 노이즈 */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+    radial-gradient(880px 400px at 50% -160px, rgba(232, 80, 31, 0.06), transparent 62%);
+  color: var(--color-foreground);
+}
+
+/* ── 타이포 ─────────────────────────────────────────────── */
+
+.ms-display {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  word-break: keep-all;
+}
+
+/* 오버사이즈 히어로 */
+.ms-hero {
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+  word-break: keep-all;
+  font-size: clamp(2.75rem, 6.5vw, 4.75rem);
+}
+
+/* 영문·숫자 전용 디스플레이 (넘버링·워드마크 보조) */
+.ms-num {
+  font-family: var(--ms-display-en);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 수치·캡션·hex — 교정쇄의 조판 지시 느낌 */
+.ms-mono {
+  font-family: var(--ms-mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── 구획: 에디토리얼 섹션 룰 ───────────────────────────── */
+
+/* 번호 + 라벨 + 풀폭 헤어라인 */
+.ms-rule {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+.ms-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--ms-hairline);
+  transform: translateY(-0.35em);
+}
+.ms-rule-no {
+  font-family: var(--ms-display-en);
+  font-weight: 900;
+  font-size: 13px;
+  color: var(--color-primary);
+}
+.ms-rule-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-foreground);
+}
+.ms-rule-meta {
+  font-family: var(--ms-mono);
+  font-size: 11px;
+  color: var(--color-muted-foreground);
+}
+
+/* ── 표면 ───────────────────────────────────────────────── */
+
+/* 무보더 백지 표면 — 보더 대신 그림자 한 겹 */
+.ms-sheet {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 1px 2px rgba(25, 24, 19, 0.05),
+    0 8px 28px rgba(25, 24, 19, 0.06);
+}
+
+/* 잉크 반전 표면 — 화면당 하나의 대비 모먼트 */
+.ms-ink {
+  background: var(--ms-ink);
+  color: #f3f1e8;
+  border-radius: var(--radius-lg);
+}
+.ms-ink .ms-cell-label {
+  color: #97937f;
+}
+
+/* DNA 벤토 서브셀 */
+.ms-cell {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.3rem;
+  box-shadow:
+    0 1px 2px rgba(25, 24, 19, 0.05),
+    0 6px 20px rgba(25, 24, 19, 0.05);
+}
+.ms-cell-label {
+  font-family: var(--ms-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  margin-bottom: 0.65rem;
+}
+/* 잉크 반전 셀 — .ms-cell 뒤에 와도 이기도록 복합 선택자 */
+.ms-cell.ms-ink {
+  background: var(--ms-ink);
+  color: #f3f1e8;
+}
+
+/* 도판(plate) — 에셋을 인쇄 도판처럼 흰 매트에 올린다 */
+.ms-plate {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: 0.65rem;
+  box-shadow:
+    0 1px 2px rgba(25, 24, 19, 0.06),
+    0 10px 30px rgba(25, 24, 19, 0.08);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+.ms-plate:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 2px 4px rgba(25, 24, 19, 0.06),
+    0 18px 44px rgba(25, 24, 19, 0.12);
+}
+
+.ms-lift {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+.ms-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(25, 24, 19, 0.1);
+}
+
+/* 에디터 스테이지 — 잉크 룸 위에 캔버스가 뜬다 */
+.ms-stage {
+  background:
+    radial-gradient(720px 380px at 50% -8%, rgba(232, 80, 31, 0.12), transparent 62%),
+    var(--ms-ink-soft);
+  border-radius: var(--radius-xl);
+}
+
+/* ── 컨트롤 ─────────────────────────────────────────────── */
+
+/* 언더라인 인라인 인풋 — 보더 인풋 실루엣 제거 */
+.ms-uline {
+  width: 100%;
+  background: transparent;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+.ms-uline:hover {
+  border-bottom-color: var(--ms-hairline);
+}
+.ms-uline:focus {
+  border-bottom-color: var(--color-primary);
+}
+.ms-uline::placeholder {
+  color: color-mix(in srgb, var(--color-muted-foreground) 55%, transparent);
+}
+
+/* 필 토글 (목표·채널·컴포지션 공용) */
+.ms-pill {
+  border: 1px solid var(--ms-hairline);
+  border-radius: 999px;
+  padding: 0.42rem 0.9rem;
+  font-size: 12px;
+  color: var(--color-muted-foreground);
+  background: transparent;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
+  cursor: pointer;
+  word-break: keep-all;
+}
+.ms-pill:hover {
+  color: var(--color-foreground);
+  border-color: var(--color-input);
+}
+.ms-pill[aria-pressed="true"],
+.ms-pill.is-on {
+  background: var(--ms-ink);
+  border-color: var(--ms-ink);
+  color: #f3f1e8;
+  font-weight: 600;
+}
+
+/* 주 CTA — 큼직한 버밀리언 필 + 화살표 마이크로 모션 */
+.ms-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding: 0.85rem 1.6rem;
+  border: 0;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+  box-shadow: 0 10px 24px rgba(232, 80, 31, 0.28);
+  word-break: keep-all;
+}
+.ms-cta:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(232, 80, 31, 0.34);
+}
+.ms-cta:active:not(:disabled) {
+  transform: translateY(0);
+}
+.ms-cta:disabled {
+  opacity: 0.55;
+  cursor: default;
+  box-shadow: none;
+}
+.ms-cta .ms-cta-arrow {
+  transition: transform 0.15s ease;
+}
+.ms-cta:hover:not(:disabled) .ms-cta-arrow {
+  transform: translateX(3px);
+}
+
+/* 언더라인 텍스트 액션 */
+.ms-linkact {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--ms-hairline);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: text-decoration-color 0.15s ease;
+}
+.ms-linkact:hover {
+  text-decoration-color: var(--color-primary);
+}
+
+/* 히어로 URL 입력 필 */
+.ms-hero-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-card);
+  border-radius: 999px;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  box-shadow:
+    0 1px 2px rgba(25, 24, 19, 0.06),
+    0 16px 44px rgba(25, 24, 19, 0.1);
+  transition: box-shadow 0.18s ease;
+}
+.ms-hero-pill:focus-within {
+  box-shadow:
+    0 0 0 2px var(--color-primary),
+    0 16px 44px rgba(25, 24, 19, 0.1);
+}
+
+/* ── 모션: 로드 스태거 리빌 ─────────────────────────────── */
+
+@keyframes ms-reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.ms-reveal {
+  animation: ms-reveal-in 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.ms-reveal-1 { animation-delay: 0.05s; }
+.ms-reveal-2 { animation-delay: 0.12s; }
+.ms-reveal-3 { animation-delay: 0.19s; }
+.ms-reveal-4 { animation-delay: 0.26s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-reveal,
+  .ms-reveal-1,
+  .ms-reveal-2,
+  .ms-reveal-3,
+  .ms-reveal-4 {
+    animation: none;
+  }
+}

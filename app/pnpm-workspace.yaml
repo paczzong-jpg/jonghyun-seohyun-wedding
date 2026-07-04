@@ -1,0 +1,11 @@
+packages:
+  - "."
+
+ignoreScripts: true
+minimumReleaseAge: 20160
+strictSsl: true
+storeDir: /opt/pnpm-store
+
+overrides:
+  "lodash": "4.18.1"
+  "postcss": "8.5.10"
